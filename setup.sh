@@ -17,9 +17,17 @@ else
 fi
 
 # Crea directorio para tareas
-ruta_tareas="$HOME/Documentos/Tareas"
+ruta_tareas=""
+
+if [[ -d "$HOME/Documentos/" ]]; then
+	ruta_tareas="$HOME/Documentos/Tareas/"
+elif [[ -d "$HOME/Documents/" ]]; then
+	ruta_tareas="$HOME/Documents/Tareas/"
+fi
 
 if [[ ! -d "$ruta_tareas" ]]; then
-	mkdir $ruta_tareas
+	mkdir "$ruta_tareas"
+	echo "" > ${ruta_tareas}Global.txt
 fi
 printf "Directorio $ruta_tareas creado :)\n"
+printf "Archivo ${ruta_tareas}Global.txt creado :)\n"
